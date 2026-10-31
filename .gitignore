@@ -16,5 +16,7 @@ __pycache__/
 
 # Temporary & Editor
 *.tmp
+dist/*.txt
+.hyperframes/
 .vscode/
 .idea/
