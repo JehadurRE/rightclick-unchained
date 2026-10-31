@@ -1,0 +1,33 @@
+{
+  "name": "RightClick Unchained: Absolute Copy & Select Enabler",
+  "short_name": "RightClick Unchained",
+  "version": "1.0.0",
+  "default_locale": "en",
+  "category": "productivity",
+  "subcategory": "workflow",
+  "pricing": "free",
+  "manifest_version": 3,
+  "author": "JehadurRE",
+  "support_url": "https://github.com/JehadurRE/rightclick-unchained/issues",
+  "homepage_url": "https://github.com/JehadurRE/rightclick-unchained",
+  "privacy_policy_url": "https://github.com/JehadurRE/rightclick-unchained/blob/main/store-assets/privacy-policy.md",
+  "tags": [
+    "right click",
+    "enable right click",
+    "allow copy",
+    "text selection",
+    "manifest v3",
+    "unblock paste",
+    "productivity",
+    "open source"
+  ],
+  "package_file": "dist/rightclick-unchained-v1.0.0.zip",
+  "store_submission_checklist": {
+    "manifest_v3_compliant": true,
+    "zero_external_scripts": true,
+    "privacy_policy_provided": true,
+    "single_purpose_clear": true,
+    "minimal_permissions_justified": true,
+    "tested_offline": true
+  }
+}

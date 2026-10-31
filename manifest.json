@@ -1,0 +1,81 @@
+{
+  "manifest_version": 3,
+  "name": "RightClick Unchained: Absolute Copy & Select Enabler",
+  "short_name": "RightClick Unchained",
+  "version": "1.0.0",
+  "description": "Restore right-click, text selection, copy, paste, and drag on restricted websites. Manifest V3 native, privacy-first, 0 tracking.",
+  "author": "JehadurRE",
+  "homepage_url": "https://github.com/JehadurRE/rightclick-unchained",
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "32": "assets/icons/icon-32.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "RightClick Unchained",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "32": "assets/icons/icon-32.png",
+      "48": "assets/icons/icon-48.png",
+      "128": "assets/icons/icon-128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/isolated.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/main-world.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true
+    }
+  ],
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+U",
+        "mac": "Alt+Shift+U"
+      },
+      "description": "Open RightClick Unchained popup"
+    },
+    "toggle-site": {
+      "suggested_key": {
+        "default": "Alt+Shift+R",
+        "mac": "Alt+Shift+R"
+      },
+      "description": "Toggle unblocking on current site"
+    },
+    "force-copy": {
+      "suggested_key": {
+        "default": "Alt+Shift+C",
+        "mac": "Alt+Shift+C"
+      },
+      "description": "Force copy selected text to clipboard"
+    }
+  }
+}

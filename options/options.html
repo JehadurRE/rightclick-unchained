@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RightClick Unchained - Settings & Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="options-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="../assets/icons/icon-48.png" alt="Logo" width="36" height="36">
+        <div>
+          <h2>RightClick <span class="accent">Unchained</span></h2>
+          <span class="version">Manifest V3 Production Edition</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#rules" class="nav-link active">Domain Rules</a>
+        <a href="#preferences" class="nav-link">Global Preferences</a>
+        <a href="#shortcuts" class="nav-link">Shortcuts</a>
+        <a href="#backup" class="nav-link">Backup & Privacy</a>
+      </nav>
+      <div class="sidebar-footer">
+        <span>Created by JehadurRE</span>
+        <a href="https://github.com/JehadurRE/rightclick-unchained" target="_blank" rel="noreferrer">GitHub Project</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content-area">
+      <!-- Section: Domain Rules -->
+      <section id="rules" class="settings-section">
+        <div class="section-header">
+          <h3>Domain Rules & Overrides</h3>
+          <p>Customize behavior per website or whitelist specific domains.</p>
+        </div>
+
+        <div class="add-rule-card">
+          <input type="text" id="new-domain-input" placeholder="e.g. medium.com or example.org">
+          <select id="new-domain-mode">
+            <option value="smart">Smart Mode</option>
+            <option value="absolute">Absolute Mode</option>
+          </select>
+          <button id="btn-add-domain" class="btn-primary">Add Domain</button>
+        </div>
+
+        <div class="rules-table-container">
+          <table class="rules-table">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>Mode</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="rules-tbody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+          <div id="no-rules-placeholder" class="placeholder-text">
+            No custom domain overrides yet. RightClick Unchained uses global smart defaults across all sites.
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Global Preferences -->
+      <section id="preferences" class="settings-section">
+        <div class="section-header">
+          <h3>Global Engine Preferences</h3>
+          <p>Configure default behaviors for unvisited websites.</p>
+        </div>
+
+        <div class="card preference-card">
+          <div class="preference-row">
+            <div>
+              <h4>Default Engine Mode</h4>
+              <p>Smart preserves website dropdown menus; Absolute aggressively strips all block handlers.</p>
+            </div>
+            <select id="pref-default-mode" class="select-control">
+              <option value="smart">Smart Mode (Recommended)</option>
+              <option value="absolute">Absolute Mode</option>
+            </select>
+          </div>
+
+          <div class="preference-row">
+            <div>
+              <h4>Remove Hostile Overlays</h4>
+              <p>Automatically remove transparent blocker div elements layered above articles.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="pref-remove-overlays" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="preference-row">
+            <div>
+              <h4>Global Master Shield</h4>
+              <p>Temporarily pause or activate unblocking on all sites simultaneously.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="pref-global-enabled" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Shortcuts -->
+      <section id="shortcuts" class="settings-section">
+        <div class="section-header">
+          <h3>Keyboard Shortcuts</h3>
+          <p>Supercharge your workflow with instant hotkeys.</p>
+        </div>
+
+        <div class="card shortcuts-card">
+          <div class="shortcut-item">
+            <span class="shortcut-desc">Open RightClick Unchained Popup</span>
+            <kbd class="shortcut-key">Alt + Shift + U</kbd>
+          </div>
+          <div class="shortcut-item">
+            <span class="shortcut-desc">Toggle Unblocking for Current Site</span>
+            <kbd class="shortcut-key">Alt + Shift + R</kbd>
+          </div>
+          <div class="shortcut-item">
+            <span class="shortcut-desc">Force Copy Selected Text</span>
+            <kbd class="shortcut-key">Alt + Shift + C</kbd>
+          </div>
+          <div class="shortcut-link-row">
+            <button id="btn-open-chrome-shortcuts" class="btn-secondary">
+              Configure in Chrome Shortcut Settings
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Backup & Privacy -->
+      <section id="backup" class="settings-section">
+        <div class="section-header">
+          <h3>Backup & Privacy</h3>
+          <p>Your data stays 100% on your machine. Export, import, or reset at any time.</p>
+        </div>
+
+        <div class="card backup-card">
+          <div class="backup-actions">
+            <button id="btn-export-settings" class="btn-secondary">Export Settings (JSON)</button>
+            <label class="btn-secondary btn-file-label">
+              Import Settings
+              <input type="file" id="file-import-settings" accept=".json" style="display:none;">
+            </label>
+            <button id="btn-reset-defaults" class="btn-danger">Reset to Defaults</button>
+          </div>
+          <div class="privacy-notice">
+            <strong>Zero Telemetry Commitment:</strong> RightClick Unchained collects zero user analytics, sends zero network requests, and requires zero remote servers. Everything runs entirely client-side inside your browser in accordance with strict Manifest V3 standards.
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
