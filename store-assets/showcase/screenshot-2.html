@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RightClick Unchained - Showcase 2 (Smart Lasso)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      width: 1280px;
+      height: 800px;
+      overflow: hidden;
+      background: radial-gradient(ellipse at 80% 20%, rgba(6, 182, 212, 0.2), transparent 55%),
+                  radial-gradient(ellipse at 20% 80%, rgba(99, 102, 241, 0.18), transparent 55%),
+                  #070B14;
+      display: flex;
+      flex-direction: column;
+      padding: 32px 48px;
+      position: relative;
+    }
+
+    .showcase-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #06B6D4, #3B82F6);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(6, 182, 212, 0.35);
+    }
+
+    .brand-title-group h1 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-title-group h1 span.gradient {
+      background: linear-gradient(135deg, #22D3EE, #818CF8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .pill-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(6, 182, 212, 0.2);
+      border: 1px solid rgba(6, 182, 212, 0.5);
+      color: #A5F3FC;
+    }
+
+    .brand-title-group p {
+      font-size: 13.5px;
+      color: #94A3B8;
+      margin-top: 3px;
+    }
+
+    .browser-frame {
+      flex: 1;
+      background: #0F172A;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .browser-titlebar {
+      height: 44px;
+      background: #1E293B;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 16px;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #EF4444; }
+    .dot-yellow { background: #F59E0B; }
+    .dot-green { background: #10B981; }
+
+    .url-bar {
+      flex: 1;
+      max-width: 580px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 6px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #94A3B8;
+      margin: 0 auto;
+    }
+
+    .url-bar .host {
+      color: #F1F5F9;
+      font-weight: 600;
+    }
+
+    .viewport {
+      flex: 1;
+      background: #0B1120;
+      padding: 36px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .table-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+
+    .table-sub {
+      font-size: 13px;
+      color: #64748B;
+      margin-bottom: 24px;
+    }
+
+    /* Data Table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .data-table th {
+      background: #1E293B;
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94A3B8;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .data-table td {
+      padding: 14px 16px;
+      font-size: 13.5px;
+      color: #E2E8F0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      background: rgba(15, 23, 42, 0.5);
+    }
+
+    /* Lasso Selection Overlay */
+    .lasso-box {
+      position: absolute;
+      top: 135px;
+      left: 36px;
+      width: 1100px;
+      height: 200px;
+      border: 2px dashed #06B6D4;
+      background: rgba(6, 182, 212, 0.12);
+      border-radius: 8px;
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.25);
+      pointer-events: none;
+    }
+
+    .lasso-badge {
+      position: absolute;
+      top: -14px;
+      left: 20px;
+      background: #06B6D4;
+      color: #070B14;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .crosshair-icon {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 32px;
+      height: 32px;
+      color: #22D3EE;
+    }
+
+    /* Toast Notification */
+    .toast-card {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      background: #0F172A;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(16, 185, 129, 0.15);
+      z-index: 100;
+      animation: popIn 0.3s ease;
+    }
+
+    .toast-icon {
+      width: 24px;
+      height: 24px;
+      background: rgba(16, 185, 129, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #10B981;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .toast-content h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .toast-content p {
+      font-size: 11.5px;
+      color: #94A3B8;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="showcase-header">
+    <div class="brand-group">
+      <div class="brand-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="22" y1="12" x2="18" y2="12"></line>
+          <line x1="6" y1="12" x2="2" y2="12"></line>
+          <line x1="12" y1="6" x2="12" y2="2"></line>
+          <line x1="12" y1="22" x2="12" y2="18"></line>
+        </svg>
+      </div>
+      <div class="brand-title-group">
+        <h1>Smart Text Lasso <span class="gradient">Grabber</span> <span class="pill-badge">Alt + Shift + X</span></h1>
+        <p>Extract Clean Text From Protected Canvas, Encrypted Tables & Locked DOM Trees</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="browser-frame">
+    <div class="browser-titlebar">
+      <div class="window-dots">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+      </div>
+      <div class="url-bar">
+        <span>🔒</span>
+        <span class="host">cloud-specs-internal.net</span>/systems/node-matrix-security
+      </div>
+    </div>
+
+    <div class="viewport">
+      <div class="table-title">System Infrastructure Telemetry (Protected Canvas Grid)</div>
+      <div class="table-sub">Client-side copy blocked by proprietary table widget • Bypassed via Smart Text Lasso</div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Node Identifier</th>
+            <th>Network Protocol</th>
+            <th>Throughput Bandwidth</th>
+            <th>Encryption Cipher</th>
+            <th>Operational Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>NODE-US-EAST-01</td>
+            <td>WireGuard / BGP Mesh</td>
+            <td>400 Gbps Core</td>
+            <td>ChaCha20-Poly1305</td>
+            <td><span style="color: #10B981; font-weight: 600;">Active Verified</span></td>
+          </tr>
+          <tr>
+            <td>NODE-EU-WEST-04</td>
+            <td>Zero-Trust Overlay</td>
+            <td>100 Gbps Gateway</td>
+            <td>AES-256-GCM</td>
+            <td><span style="color: #10B981; font-weight: 600;">Active Verified</span></td>
+          </tr>
+          <tr>
+            <td>NODE-AP-SOUTH-02</td>
+            <td>Sovereign Secure Link</td>
+            <td>200 Gbps Transit</td>
+            <td>Post-Quantum Kyber-768</td>
+            <td><span style="color: #10B981; font-weight: 600;">Active Verified</span></td>
+          </tr>
+          <tr>
+            <td>NODE-GLOBAL-EDGE-09</td>
+            <td>Hardware HSM Cluster</td>
+            <td>50 Gbps Direct</td>
+            <td>FIPS 140-3 Level 4</td>
+            <td><span style="color: #10B981; font-weight: 600;">Secured & Monitored</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Lasso Bounding Box Overlay -->
+      <div class="lasso-box">
+        <span class="lasso-badge">Active Selection (4 Rows Captured)</span>
+        <svg class="crosshair-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="9"></circle>
+          <line x1="12" y1="3" x2="12" y2="21"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+        </svg>
+      </div>
+
+      <!-- Toast Feedback -->
+      <div class="toast-card">
+        <div class="toast-icon">✔</div>
+        <div class="toast-content">
+          <h4>Smart Lasso Copied!</h4>
+          <p>4 rows (76 words) copied cleanly as formatted plaintext.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

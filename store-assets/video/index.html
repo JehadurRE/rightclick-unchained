@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>RightClick Unchained - Promo Film</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ground: #070B14;
+        --indigo: #4F46E5;
+        --cyan: #06B6D4;
+        --emerald: #10B981;
+        --text-white: #FFFFFF;
+        --text-sub: #94A3B8;
+        --card-bg: #0F172A;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+      html, body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--ground);
+      }
+      #root {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        background: radial-gradient(ellipse at 80% 20%, rgba(79, 70, 229, 0.25), transparent 50%),
+                    radial-gradient(ellipse at 20% 80%, rgba(6, 182, 212, 0.2), transparent 50%),
+                    #070B14;
+      }
+
+      /* Scene 1: The Problem (0s - 4s) */
+      #scene-1 {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .problem-headline {
+        font-size: 76px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        color: #F87171;
+        margin-bottom: 24px;
+        text-shadow: 0 0 40px rgba(239, 68, 68, 0.4);
+      }
+      .problem-pills {
+        display: flex;
+        gap: 20px;
+      }
+      .problem-pill {
+        background: rgba(239, 68, 68, 0.15);
+        border: 2px solid rgba(239, 68, 68, 0.4);
+        padding: 14px 28px;
+        border-radius: 40px;
+        font-size: 24px;
+        font-weight: 700;
+        color: #FECACA;
+      }
+
+      /* Scene 2: The Solution (4s - 8s) */
+      #scene-2 {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .logo-box {
+        width: 130px;
+        height: 130px;
+        background: linear-gradient(135deg, #4F46E5, #06B6D4);
+        border-radius: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 20px 50px rgba(79, 70, 229, 0.6), 0 0 0 2px rgba(255, 255, 255, 0.2);
+        margin-bottom: 32px;
+      }
+      .main-title {
+        font-size: 88px;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        color: #FFFFFF;
+        margin-bottom: 16px;
+      }
+      .main-title span {
+        background: linear-gradient(135deg, #818CF8, #22D3EE);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .solution-sub {
+        font-size: 32px;
+        color: #CBD5E1;
+        font-weight: 500;
+        margin-bottom: 40px;
+      }
+      .feature-grid {
+        display: flex;
+        gap: 24px;
+      }
+      .feat-card {
+        background: rgba(30, 41, 59, 0.7);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 18px 32px;
+        border-radius: 16px;
+        font-size: 22px;
+        font-weight: 700;
+        color: #F8FAFC;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      }
+      .feat-card .icon {
+        color: #10B981;
+      }
+
+      /* Scene 3: Smart Text Lasso (8s - 11s) */
+      #scene-3 {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .lasso-headline {
+        font-size: 68px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: #FFFFFF;
+        margin-bottom: 12px;
+      }
+      .lasso-headline span {
+        color: #06B6D4;
+      }
+      .lasso-sub {
+        font-size: 26px;
+        color: #94A3B8;
+        margin-bottom: 40px;
+      }
+      .lasso-demo-box {
+        width: 1100px;
+        height: 380px;
+        background: #0F172A;
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        padding: 40px;
+        position: relative;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .demo-row {
+        height: 48px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        padding: 0 24px;
+        font-size: 20px;
+        color: #CBD5E1;
+        justify-content: space-between;
+      }
+      .lasso-selection-rect {
+        position: absolute;
+        top: 90px;
+        left: 30px;
+        width: 1040px;
+        height: 220px;
+        border: 3px dashed #06B6D4;
+        background: rgba(6, 182, 212, 0.15);
+        border-radius: 12px;
+        box-shadow: 0 0 40px rgba(6, 182, 212, 0.3);
+      }
+      .lasso-toast {
+        position: absolute;
+        bottom: -30px;
+        right: 40px;
+        background: #111827;
+        border: 2px solid #10B981;
+        padding: 16px 28px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #FFFFFF;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+      }
+
+      /* Scene 4: Outro CTA (11s - 14s) */
+      #scene-4 {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .outro-title {
+        font-size: 80px;
+        font-weight: 900;
+        color: #FFFFFF;
+        margin-bottom: 20px;
+        letter-spacing: -0.04em;
+      }
+      .outro-title span {
+        background: linear-gradient(135deg, #818CF8, #22D3EE);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .outro-sub {
+        font-size: 28px;
+        color: #94A3B8;
+        margin-bottom: 44px;
+      }
+      .cta-badge {
+        background: linear-gradient(135deg, #4F46E5, #06B6D4);
+        padding: 22px 54px;
+        border-radius: 50px;
+        font-size: 28px;
+        font-weight: 800;
+        color: #FFFFFF;
+        box-shadow: 0 15px 40px rgba(79, 70, 229, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="14"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- Scene 1: Problem -->
+      <div id="scene-1" class="clip" data-start="0" data-duration="4" data-track-index="0">
+        <h1 class="problem-headline">Websites Are Locking You Out</h1>
+        <div class="problem-pills">
+          <div class="problem-pill">🚫 Right-Click Blocked</div>
+          <div class="problem-pill">🚫 Text Selection Disabled</div>
+          <div class="problem-pill">🚫 Password Paste Forbidden</div>
+        </div>
+      </div>
+
+      <!-- Scene 2: Solution -->
+      <div id="scene-2" class="clip" data-start="4" data-duration="4" data-track-index="0">
+        <div class="logo-box">
+          <svg width="68" height="68" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
+          </svg>
+        </div>
+        <h1 class="main-title">RightClick <span>Unchained</span></h1>
+        <p class="solution-sub">The Modern, Privacy-First Manifest V3 Enabler</p>
+        <div class="feature-grid">
+          <div class="feat-card"><span class="icon">✔</span> Restore Context Menu</div>
+          <div class="feat-card"><span class="icon">✔</span> Unlock Text Select</div>
+          <div class="feat-card"><span class="icon">✔</span> Enable Form Paste</div>
+        </div>
+      </div>
+
+      <!-- Scene 3: Smart Text Lasso -->
+      <div id="scene-3" class="clip" data-start="8" data-duration="3" data-track-index="0">
+        <h1 class="lasso-headline">Smart Text <span>Lasso Grabber</span></h1>
+        <p class="lasso-sub">Box & Extract Plain Text from Protected Canvas and Tables (Alt + Shift + X)</p>
+        <div class="lasso-demo-box">
+          <div class="demo-row"><span>NODE-01: BGP EVPN Overlay</span><span>400 Gbps Core</span><span style="color:#10B981">Verified</span></div>
+          <div class="demo-row"><span>NODE-02: Zero-Trust Gateway</span><span>100 Gbps Transit</span><span style="color:#10B981">Verified</span></div>
+          <div class="demo-row"><span>NODE-03: Sovereign Hardware HSM</span><span>PCI-e Direct</span><span style="color:#10B981">Protected</span></div>
+          <div class="lasso-selection-rect"></div>
+          <div class="lasso-toast"><span style="color:#10B981">✔</span> Copied 3 rows (54 words) to clipboard!</div>
+        </div>
+      </div>
+
+      <!-- Scene 4: Outro -->
+      <div id="scene-4" class="clip" data-start="11" data-duration="3" data-track-index="0">
+        <h1 class="outro-title">Take Back Control with <span>RightClick Unchained</span></h1>
+        <p class="outro-sub">100% Client-Side • Zero Telemetry • Pure Manifest V3</p>
+        <div class="cta-badge">Available on Chrome Web Store</div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      // Scene 1 Animations (0s - 4s)
+      tl.fromTo("#scene-1 .problem-headline", { opacity: 0, scale: 0.9, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.2);
+      tl.fromTo("#scene-1 .problem-pill", { opacity: 0, y: 20 }, { opacity: 1, y: 0, stagger: 0.15, duration: 0.6, ease: "back.out(1.7)" }, 0.8);
+      tl.to("#scene-1", { opacity: 0, scale: 0.95, duration: 0.4, ease: "power2.in" }, 3.6);
+
+      // Scene 2 Animations (4s - 8s)
+      tl.fromTo("#scene-2 .logo-box", { opacity: 0, scale: 0.5, rotation: -15 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.8, ease: "elastic.out(1, 0.7)" }, 4.0);
+      tl.fromTo("#scene-2 .main-title", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 4.4);
+      tl.fromTo("#scene-2 .solution-sub", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 4.7);
+      tl.fromTo("#scene-2 .feat-card", { opacity: 0, y: 25 }, { opacity: 1, y: 0, stagger: 0.15, duration: 0.5, ease: "power3.out" }, 5.0);
+      tl.to("#scene-2", { opacity: 0, scale: 1.05, duration: 0.4, ease: "power2.in" }, 7.6);
+
+      // Scene 3 Animations (8s - 11s)
+      tl.fromTo("#scene-3 .lasso-headline", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, 8.0);
+      tl.fromTo("#scene-3 .lasso-demo-box", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" }, 8.3);
+      tl.fromTo("#scene-3 .lasso-selection-rect", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, transformOrigin: "left", duration: 0.7, ease: "power2.out" }, 8.8);
+      tl.fromTo("#scene-3 .lasso-toast", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(2)" }, 9.5);
+      tl.to("#scene-3", { opacity: 0, duration: 0.4 }, 10.6);
+
+      // Scene 4 Animations (11s - 14s)
+      tl.fromTo("#scene-4 .outro-title", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, 11.0);
+      tl.fromTo("#scene-4 .outro-sub", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 11.4);
+      tl.fromTo("#scene-4 .cta-badge", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: "elastic.out(1, 0.7)" }, 11.7);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

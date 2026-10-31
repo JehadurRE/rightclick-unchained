@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "historyId": "23d99684-83ea-4d53-8901-d37c845bd35d",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "C:\\Users\\CCAI_DEV2\\.cache\\hyperframes\\history\\23d99684-83ea-4d53-8901-d37c845bd35d\\blobs\\1b\\1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "CLAUDE.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "C:\\Users\\CCAI_DEV2\\.cache\\hyperframes\\history\\23d99684-83ea-4d53-8901-d37c845bd35d\\blobs\\1b\\1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "C:\\Users\\CCAI_DEV2\\.cache\\hyperframes\\history\\23d99684-83ea-4d53-8901-d37c845bd35d\\blobs\\53\\53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "94b83386842259a7a2c6d64811e32fa0cd166c0fa30604fb27c864b898ba8d71",
+      "content": "C:\\Users\\CCAI_DEV2\\.cache\\hyperframes\\history\\23d99684-83ea-4d53-8901-d37c845bd35d\\blobs\\94\\94b83386842259a7a2c6d64811e32fa0cd166c0fa30604fb27c864b898ba8d71"
+    },
+    "meta.json": {
+      "hash": "1109797b909671930071d6919eefffee7d09237e2e71bc6bf9573dd3fd82b387",
+      "content": "C:\\Users\\CCAI_DEV2\\.cache\\hyperframes\\history\\23d99684-83ea-4d53-8901-d37c845bd35d\\blobs\\11\\1109797b909671930071d6919eefffee7d09237e2e71bc6bf9573dd3fd82b387"
+    },
+    "package.json": {
+      "hash": "dccdcd31fbf29d5f8d027d89a6b95877ec38ae9749beb0d1e5aa035a59935cd8",
+      "content": "C:\\Users\\CCAI_DEV2\\.cache\\hyperframes\\history\\23d99684-83ea-4d53-8901-d37c845bd35d\\blobs\\dc\\dccdcd31fbf29d5f8d027d89a6b95877ec38ae9749beb0d1e5aa035a59935cd8"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": {
+      "revision": null,
+      "id": "1d35d5fc-0a29-4348-914c-5293ba1443b3"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "id": "1d35d5fc-0a29-4348-914c-5293ba1443b3",
+        "scope": "project",
+        "report": "E:\\JehadurRE\\ChromeExtension\\rightclick-unchained\\store-assets\\video\\.hyperframes\\artifacts\\checks\\1d35d5fc-0a29-4348-914c-5293ba1443b3.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 10000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793475887100,
+        "contentHash": "8b1673379194fda184089e179f195760b4e98dd308b4c313a8ff87ae6bbe287b",
+        "revision": null,
+        "inputFingerprint": "9e16e155d9573f6258c3afee112eedcdb691ad5ab6faa2585fd313cb9db47117",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "7f049206-4369-4d55-9099-e5fefbf0c4b4",
+      "completedAt": 1793476117639,
+      "output": "e:\\JehadurRE\\ChromeExtension\\rightclick-unchained\\store-assets\\video\\rightclick-unchained-promo.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}
